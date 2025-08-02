@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
+  // ==================== Inisialisasi Element ====================
   const messageForm = document.getElementById("message-form");
   const currentTimeSpan = document.getElementById("current-time");
   const outputName = document.getElementById("output-name");
@@ -7,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const outputMessage = document.getElementById("output-message");
   const welcomeTitle = document.getElementById("welcome-title");
 
-  // Custom alert popup
+  // ==================== Custom Alert ====================
   const alertBox = document.getElementById("custom-alert");
   const alertMessage = document.getElementById("alert-message");
   const alertOk = document.getElementById("alert-ok");
@@ -21,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
     alertBox.style.display = "none";
   });
 
-  // Set current time
+  // ==================== Waktu Saat Ini (Live) ====================
   function updateCurrentTime() {
     const now = new Date();
     const datePart = now.toDateString();
@@ -31,16 +32,16 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   updateCurrentTime();
-  setInterval(updateCurrentTime, 1000);
+  setInterval(updateCurrentTime, 1000); // Update setiap 1 detik
 
-  // Set default birth-date to today
+  // ==================== Set Default Tanggal Hari Ini ====================
   const today = new Date();
   const year = today.getFullYear();
   const month = String(today.getMonth() + 1).padStart(2, "0");
   const day = String(today.getDate()).padStart(2, "0");
   document.getElementById("birth-date").value = `${year}-${month}-${day}`;
 
-  // Prompt name at page load, force to fill in
+  // ==================== Prompt Nama Saat Load ====================
   let userName = "";
   while (!userName || userName.trim() === "") {
     userName = prompt("Please enter your name:");
@@ -51,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   welcomeTitle.textContent = `Hi ${userName}, Welcome To Website`;
 
-  // Handle form submission
+  // ==================== Proses Submit Form ====================
   messageForm.addEventListener("submit", function (event) {
     event.preventDefault();
 
@@ -60,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const genderInput = document.querySelector('input[name="gender"]:checked');
     const message = document.getElementById("message").value.trim();
 
-    // Validasi semua field
+    // Validasi input
     if (!name || !birthDate || !genderInput || !message) {
       showAlert("Please fill in all fields.");
       return;
@@ -77,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("Form Submitted:", { name, birthDate, gender, message });
   });
 
-  // Clear output on load
+  // ==================== Reset Output Saat Halaman Dimuat ====================
   outputName.textContent = "";
   outputBirthDate.textContent = "";
   outputGender.textContent = "";

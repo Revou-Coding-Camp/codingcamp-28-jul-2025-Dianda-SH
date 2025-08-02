@@ -1,3 +1,4 @@
+/* ==================== RESET & FONTS ==================== */
 * {
   margin: 0;
   padding: 0;
@@ -11,12 +12,14 @@ body {
   color: #333;
 }
 
+/* ==================== LAYOUT UTAMA ==================== */
 .container {
   width: 90%;
   max-width: 1200px;
   margin: 0 auto;
 }
 
+/* ==================== NAVIGATION BAR ==================== */
 .navbar {
   background-color: oklch(94.118% 0.20031 105.701);
   color: #333;
@@ -60,7 +63,7 @@ body {
   color: #007bff;
 }
 
-/* Main Content Area */
+/* ==================== HERO / HOME SECTION ==================== */
 .content-area {
   padding: 40px 0;
 }
@@ -83,6 +86,7 @@ body {
   margin-bottom: 40px;
 }
 
+/* Placeholder Box untuk gambar utama */
 .placeholder-box {
   width: 100%;
   padding-top: 42.5%;
@@ -90,37 +94,35 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #888;
   font-size: 1.5em;
   border: 1px dashed #bbb;
   border-radius: 8px;
   position: relative;
+  overflow: hidden;
 }
 
-.placeholder-box p {
+.placeholder-box img {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  margin: 0;
-}
-
-.section-divider {
-  border-top: 1px solid #ddd;
-  padding: 40px 0;
-  text-align: center;
-  background-color: #fff;
-  margin-bottom: 20px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
+/* ==================== SECTION UMUM ==================== */
+.section-divider,
 .section-content {
   padding: 40px 0;
   background-color: #fff;
   margin-bottom: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.section-divider {
+  border-top: 1px solid #ddd;
 }
 
 .section-content h2,
@@ -131,6 +133,7 @@ body {
   color: #333;
 }
 
+/* ==================== HOBBIES SECTION ==================== */
 .facilitation-cards {
   display: flex;
   justify-content: space-around;
@@ -155,13 +158,23 @@ body {
   transform: translateY(-5px);
 }
 
-.facilitation-cards .circle-icon {
+.circle-icon {
   width: 100px;
   height: 100px;
   background-color: #f0f0f0;
   border-radius: 50%;
   margin: 0 auto 15px auto;
   border: 1px solid #ddd;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .facilitation-cards .card p {
@@ -170,6 +183,28 @@ body {
   color: #444;
 }
 
+/* ==================== PROFILE & ACHIEVEMENT ==================== */
+.profile-logo img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 20px auto;
+  display: block;
+  border: 3px solid #ccc;
+}
+
+.profile-description,
+.achievement-description {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: justify;
+  font-size: 1.1em;
+  line-height: 1.8;
+  padding: 20px;
+}
+
+/* ==================== MESSAGE US FORM ==================== */
 .message-us-container {
   display: flex;
   gap: 30px;
@@ -268,6 +303,7 @@ body {
   color: #007bff;
 }
 
+/* ==================== FOOTER ==================== */
 footer {
   background-color: oklch(94.118% 0.20031 105.701);
   color: #333;
@@ -281,7 +317,52 @@ footer p {
   margin-bottom: 5px;
 }
 
-/* Responsive adjustments */
+/* ==================== CUSTOM ALERT BOX ==================== */
+.custom-alert {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.alert-box {
+  background: #fff;
+  padding: 20px 30px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  max-width: 300px;
+  animation: fadeIn 0.3s ease;
+}
+
+.alert-box p {
+  margin-bottom: 20px;
+  font-size: 1em;
+  color: #333;
+}
+
+.alert-box button {
+  padding: 8px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Optional animation */
+@keyframes fadeIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* ==================== RESPONSIVE DESIGN ==================== */
 @media (max-width: 768px) {
   .navbar .container {
     flex-direction: column;
@@ -336,130 +417,3 @@ footer p {
     font-size: 1.8em;
   }
 }
-.placeholder-box img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
-.placeholder-box {
-  width: 100%;
-  padding-top: 42.5%; /* Ini mengatur rasio 1366x578 */
-  background-color: #e0e0e0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.5em;
-  border: 1px dashed #bbb;
-  border-radius: 8px;
-  position: relative;
-  overflow: hidden; /* tambahkan ini untuk memastikan gambar tidak keluar kotak */
-}
-
-.custom-alert {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
-
-.alert-box {
-  background: #fff;
-  padding: 20px 30px;
-  border-radius: 10px;
-  text-align: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  max-width: 300px;
-  animation: fadeIn 0.3s ease;
-}
-
-.alert-box p {
-  margin-bottom: 20px;
-  font-size: 1em;
-  color: #333;
-}
-
-.alert-box button {
-  padding: 8px 20px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-/* Optional: animation */
-@keyframes fadeIn {
-  from { transform: scale(0.8); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
-}
-
-.profile-logo img {
-  width: 200px;         /* Atur ukuran sesuai kebutuhan */
-  height: 200px;
-  object-fit: cover;    /* Agar gambar tidak terdistorsi */
-  border-radius: 50%;   /* Ini yang membuatnya menjadi lingkaran */
-  border: 3px solid #ccc; /* Opsional: border abu-abu */
-  display: block;
-  margin: 0 auto;       /* Agar gambar berada di tengah */
-}
-
-
-.circle-icon {
-  width: 100px;
-  height: 100px;
-  background-color: #f0f0f0;
-  border-radius: 50%;
-  margin: 0 auto 15px auto;
-  border: 1px solid #ddd;
-  overflow: hidden; /* memastikan gambar tidak keluar */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.circle-icon img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* menjaga gambar tetap proporsional */
-  display: block;
-}
-
-.profile-description {
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: justify;
-  font-size: 1.1em;
-  line-height: 1.8;
-  padding: 20px;
-}
-
-.achievement-description {
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: justify;
-  font-size: 1.1em;
-  line-height: 1.8;
-  padding: 20px;
-}
-
-.profile-logo img {
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 50%;
-  margin: 20px auto;
-  display: block;
-  border: 3px solid #ccc;
-}
-
